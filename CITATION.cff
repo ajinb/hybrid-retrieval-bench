@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "hybrid-retrieval-bench"
+abstract: "BM25, dense, reciprocal rank fusion and cross-encoder reranking compared on three BeIR datasets, with paired confidence intervals."
+authors:
+  - family-names: Baby
+    given-names: Ajin
+    orcid: "https://orcid.org/0009-0007-6190-9516"
+repository-code: "https://github.com/ajinb/hybrid-retrieval-bench"
+url: "https://cloudandsre.com"
+license: Apache-2.0
+version: 0.1.0
+date-released: 2026-11-08

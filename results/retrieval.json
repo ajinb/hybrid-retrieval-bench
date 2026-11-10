@@ -1,0 +1,130 @@
+{
+  "embedder": "BAAI/bge-small-en-v1.5",
+  "reranker": "Xenova/ms-marco-MiniLM-L-6-v2",
+  "rerank_depth": 20,
+  "results": [
+    {
+      "dataset": "scifact",
+      "documents": 5183,
+      "queries": 300,
+      "embed_seconds": 1083.8,
+      "ms_per_query": {
+        "bm25": 2.1,
+        "dense": 1.2,
+        "rerank": 1436.6
+      },
+      "table": [
+        {
+          "system": "bm25",
+          "ndcg@10": 0.6802,
+          "recall@100": 0.922,
+          "mrr": 0.6516
+        },
+        {
+          "system": "dense",
+          "ndcg@10": 0.7203,
+          "recall@100": 0.9533,
+          "mrr": 0.6883
+        },
+        {
+          "system": "rrf",
+          "ndcg@10": 0.7337,
+          "recall@100": 0.965,
+          "mrr": 0.706
+        },
+        {
+          "system": "convex",
+          "ndcg@10": 0.743,
+          "recall@100": 0.9617,
+          "mrr": 0.7173
+        },
+        {
+          "system": "dense+rerank",
+          "ndcg@10": 0.7021,
+          "recall@100": 0.9533,
+          "mrr": 0.6716
+        },
+        {
+          "system": "rrf+rerank",
+          "ndcg@10": 0.7061,
+          "recall@100": 0.965,
+          "mrr": 0.6757
+        }
+      ],
+      "comparisons": [
+        {
+          "from": "dense",
+          "to": "rrf",
+          "delta_ndcg@10": 0.0134,
+          "ci95": [
+            -0.0104,
+            0.0369
+          ],
+          "queries_improved": 57,
+          "queries_worse": 38,
+          "queries_tied": 205
+        },
+        {
+          "from": "bm25",
+          "to": "rrf",
+          "delta_ndcg@10": 0.0534,
+          "ci95": [
+            0.0308,
+            0.0759
+          ],
+          "queries_improved": 82,
+          "queries_worse": 21,
+          "queries_tied": 197
+        },
+        {
+          "from": "dense",
+          "to": "dense+rerank",
+          "delta_ndcg@10": -0.0181,
+          "ci95": [
+            -0.044,
+            0.0079
+          ],
+          "queries_improved": 44,
+          "queries_worse": 55,
+          "queries_tied": 201
+        },
+        {
+          "from": "rrf",
+          "to": "rrf+rerank",
+          "delta_ndcg@10": -0.0275,
+          "ci95": [
+            -0.0538,
+            -0.0022
+          ],
+          "queries_improved": 42,
+          "queries_worse": 60,
+          "queries_tied": 198
+        },
+        {
+          "from": "dense",
+          "to": "rrf+rerank",
+          "delta_ndcg@10": -0.0141,
+          "ci95": [
+            -0.0446,
+            0.0158
+          ],
+          "queries_improved": 56,
+          "queries_worse": 62,
+          "queries_tied": 182
+        },
+        {
+          "from": "convex",
+          "to": "rrf",
+          "delta_ndcg@10": -0.0093,
+          "ci95": [
+            -0.0247,
+            0.0056
+          ],
+          "queries_improved": 30,
+          "queries_worse": 33,
+          "queries_tied": 237
+        }
+      ]
+    }
+  ]
+}
